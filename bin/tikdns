@@ -1,0 +1,41 @@
+#!/bin/bash
+
+USAGE="tikdns {flush,list,count}"
+ROUTER="192.168.88.1"
+REMOTEUSER="admin"
+PRIVKEY=$HOME/.ssh/id_rsa_backcompat
+
+SSH_URI="${REMOTEUSER}@${ROUTER}"
+
+function routerssh() {
+	ssh -i "${PRIVKEY}" "${SSH_URI}" "$@"
+}
+
+function stripwsp() {
+	sed '/^[[:space:]]*$/d'
+}
+
+function getdnscache() {
+	routerssh ip dns cache print | stripwsp
+}
+
+if [ "$#" == "0" ]; then
+	echo "${USAGE}"
+	exit 1
+fi
+
+case $1 in
+flush)
+	routerssh ip dns cache flush
+;;
+list)
+	getdnscache
+;;
+count)
+	getdnscache | tail -n+3 | wc -l | tr -d ' '
+;;
+*)
+	echo "${USAGE}"
+	exit 1
+;;
+esac
