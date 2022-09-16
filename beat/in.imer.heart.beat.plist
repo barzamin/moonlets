@@ -15,10 +15,5 @@
 
 	<key>StartInterval</key>
 	<integer>120</integer>
-
-	<key>StandardOutPath</key>
-	<string>/tmp/in.imer.heart.beat.out</string>
-	<key>StandardErrPath</key>
-	<string>/tmp/in.imer.heart.beat.err</string>
 </dict>
 </plist>
