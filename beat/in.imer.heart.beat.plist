@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>in.imer.heart.beat</string>
+
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Users/moon/git/moonlets/beat/beat</string>
+	</array>
+
+	<key>RunAtLoad</key>
+	<true/>
+
+	<key>StartInterval</key>
+	<integer>120</integer>
+
+	<key>StandardOutPath</key>
+	<string>/tmp/in.imer.heart.beat.out</string>
+	<key>StandardErrPath</key>
+	<string>/tmp/in.imer.heart.beat.err</string>
+</dict>
+</plist>

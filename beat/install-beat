@@ -1,0 +1,21 @@
+#!/bin/bash
+
+USAGE="install-beat <launchd|...>"
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+if [[ "$#" != 1 ]]; then
+	echo "${USAGE}"
+	exit 1
+fi
+
+case $1 in
+launchd)
+	launchagent="${SCRIPT_DIR}/in.imer.heart.beat.plist"
+	"${SCRIPT_DIR}/lint-xml.py" "${launchagent}"
+	cp "${launchagent}" "${HOME}/Library/LaunchAgents"
+;;
+*)
+	echo "${USAGE}"
+	exit 1
+;;
+esac

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+HB_TOKEN="$(security find-generic-password -w -g -s 'heart.imer.in')"
+SERVER="https://heart.imer.in"
+
+curl -X POST -H "Auth: ${HB_TOKEN}" -H "Device: $(hostname -s)" "${SERVER}/api/beat"
