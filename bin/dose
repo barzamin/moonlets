@@ -1,0 +1,19 @@
+#!/bin/bash
+
+DOSEFILE="${HOME}/Documents/Vault/doitallforthegrugs/doses.csv"
+
+timestamp="$(date '+%Y-%m-%d %H:%M%Z')"
+if [[ "$#" == 2 ]]; then
+	amount="$1"
+	substance="$2"
+	route="n/a"
+elif [[ "$#" == 3 ]]; then
+	amount="$1"
+	substance="$2"
+	route="n/a"
+else
+	echo "dose <amount> <substance> [route]"
+	exit 1
+fi
+
+echo "${timestamp},${amount},${substance},${route}" >> "${DOSEFILE}"
