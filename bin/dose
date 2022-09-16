@@ -10,7 +10,7 @@ if [[ "$#" == 2 ]]; then
 elif [[ "$#" == 3 ]]; then
 	amount="$1"
 	substance="$2"
-	route="n/a"
+	route="$3"
 else
 	echo "dose <amount> <substance> [route]"
 	exit 1
