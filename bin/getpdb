@@ -1,0 +1,4 @@
+#!/bin/bash
+
+pdb=$1
+curl -LO "https://files.rcsb.org/download/${pdb}.pdb"
