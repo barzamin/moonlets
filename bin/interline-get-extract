@@ -1,0 +1,10 @@
+#!/bin/bash
+
+format=pbf
+location=new-york_new-york
+api_token="$(pass interline)"
+
+uri="https://app.interline.io/osm_extracts/download_latest?string_id=${location}&data_format=${format}&api_token=${api_token}"
+
+echo $uri
+
