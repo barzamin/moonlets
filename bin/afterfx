@@ -1,0 +1,13 @@
+#!/bin/bash
+
+AEVER="2023"
+appname="Adobe After Effects $AEVER"
+
+if [[ $# != 1 ]]; then
+	echo "afterfx <script>"
+	exit 1
+fi
+
+jsxfile="$(realpath $1)"
+
+osascript -l JavaScript -e "ae = Application('$appname'); ae.activate(); ae.doscriptfile('$jsxfile');"
